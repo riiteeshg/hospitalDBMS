@@ -134,17 +134,19 @@ VALUES
 );
 
 --  Visits  ---
+
 INSERT INTO `hospital`.`visit`
-(
-`diagnosis`,
+(`diagnosis`,
 `treatment`,
 `Patient_id`,
 `Appointment_id`,
-`Doctor_id`)
+`Doctor_id`,
+`Hospital_id`)
 VALUES
 (
  'test diagnosis',
 'surgery',
+1,
 1,
 1,
 1);

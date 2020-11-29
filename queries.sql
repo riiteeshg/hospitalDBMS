@@ -7,13 +7,10 @@
 	`gender`,
 	`ssn`,
 	`age`,
-    `creator`,
-    `create_date`
+	`creator`
 	)
 	VALUES
-	('Mike','Tyson','214 Ranch Driveway, CA',' 4443335555','M','23454535','45');
-	('Test ','Patient','60157 Adrien Wells North Lorastad, CO 40887-9986', '1251321', 'F', 2348,50,1,1);
-	('Mike','Tyson','214 Ranch Driveway, CA',' 4443335555','M','23454535','45','2');
+	('Test ','Patient','60157 Adrien Wells North Lorastad, CO 40887-9986', '1251321', 'F', 2348,50,1);
 
 -- update patient age  --
 UPDATE `hospital`.`patient` 
@@ -59,4 +56,14 @@ WHERE
  where p.id =1;
 
 -- ==================== Check the Available Room =================
- SELECT * FROM rooms where vacancyfk_Patient_Receptionist1 = 'available';
+ SELECT * FROM rooms where vacancy = 'available';
+ 
+ -- ===========  Check and see if a patient has visited 2 different hospitals using the SSN ========
+  
+  Select h.name as Hospital , p.first_name as Patient from patient as p 
+  inner join visit as v on v.Patient_id = p.id
+  inner join hospital as h on h.id = v.Hospital_id
+   where p.ssn =238;
+  
+    
+ 
